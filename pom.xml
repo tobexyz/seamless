@@ -16,7 +16,7 @@
         <module>xml</module>
         <module>mock</module>
         <module>http</module>
-        <module>javadoc</module>
+        <!--module>javadoc</module-->
         <module>swing</module>
         <module>gwt</module>
         <module>cdi</module>

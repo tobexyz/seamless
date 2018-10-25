@@ -9,7 +9,10 @@
         <artifactId>parent</artifactId>
         <version>1.1.2</version>
     </parent>
-
+    <properties>
+       <maven.compiler.source>1.6</maven.compiler.source>
+       <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
     <name>Seamless Javadoc</name>
     <artifactId>seamless-javadoc</artifactId>
     <packaging>jar</packaging>
