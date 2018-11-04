@@ -76,8 +76,11 @@ public class SAXParser {
             }catch(SAXNotRecognizedException ex){
                 log.info("Feature disallow-doctype-decl not known");
             }
-            factory.setXIncludeAware(false);
-
+            try {
+                factory.setXIncludeAware(false);
+            }catch(UnsupportedOperationException usex){
+                log.info("can't set factory.setXIncludeAware(false);");
+            }
             factory.setNamespaceAware(true);
 
             if (getSchemaSources() != null) {
