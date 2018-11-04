@@ -19,6 +19,7 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.AttributesImpl;
@@ -70,7 +71,11 @@ public class SAXParser {
             // Configure factory to prevent XXE attacks
             factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
             factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            try {
+                factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            }catch(SAXNotRecognizedException ex){
+                log.info("Feature disallow-doctype-decl not known");
+            }
             factory.setXIncludeAware(false);
 
             factory.setNamespaceAware(true);
